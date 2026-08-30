@@ -1,0 +1,14 @@
+[remap]
+
+importer="pmdcollab.animdata.xml.importer"
+type="AnimationLibrary"
+uid="uid://d1ucjejyt0iiw"
+path="res://.godot/imported/AnimData.xml-20f050e0efb7c9ab7e0470e08e5a877e.tres"
+
+[deps]
+
+source_file="res://src/assets/monster/0001/sprites/AnimData.xml"
+dest_files=["res://.godot/imported/AnimData.xml-20f050e0efb7c9ab7e0470e08e5a877e.tres"]
+
+[params]
+

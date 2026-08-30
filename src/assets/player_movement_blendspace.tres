@@ -1,0 +1,51 @@
+[gd_resource type="AnimationNodeBlendSpace2D" format=3 uid="uid://dfjsx6rcxcbvu"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mqiqq"]
+animation = &"SpriteDirection/South"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_epcq7"]
+animation = &"SpriteDirection/North"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ijttd"]
+animation = &"SpriteDirection/West"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hhtmk"]
+animation = &"SpriteDirection/East"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1qe7k"]
+animation = &"SpriteDirection/SouthEast"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_700lb"]
+animation = &"SpriteDirection/NorthEast"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qwe0o"]
+animation = &"SpriteDirection/NorthWest"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jsgbt"]
+animation = &"SpriteDirection/SouthWest"
+
+[resource]
+blend_point_0/node = SubResource("AnimationNodeAnimation_mqiqq")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_0/name = &"SpriteDirection_South"
+blend_point_1/node = SubResource("AnimationNodeAnimation_epcq7")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_1/name = &"SpriteDirection_North"
+blend_point_2/node = SubResource("AnimationNodeAnimation_ijttd")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_2/name = &"SpriteDirection_West"
+blend_point_3/node = SubResource("AnimationNodeAnimation_hhtmk")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_3/name = &"SpriteDirection_East"
+blend_point_4/node = SubResource("AnimationNodeAnimation_1qe7k")
+blend_point_4/pos = Vector2(0.4, 0.6)
+blend_point_4/name = &"SpriteDirection_SouthEast"
+blend_point_5/node = SubResource("AnimationNodeAnimation_700lb")
+blend_point_5/pos = Vector2(0.5, -0.5)
+blend_point_5/name = &"SpriteDirection_NorthEast"
+blend_point_6/node = SubResource("AnimationNodeAnimation_qwe0o")
+blend_point_6/pos = Vector2(-0.5, -0.5)
+blend_point_6/name = &"SpriteDirection_NorthWest"
+blend_point_7/node = SubResource("AnimationNodeAnimation_jsgbt")
+blend_point_7/pos = Vector2(-0.4, 0.6)
+blend_point_7/name = &"SpriteDirection_SouthWest"

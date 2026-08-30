@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cdgx13ceoa2uc"]
+
+[ext_resource type="PackedScene" uid="uid://bmdrtgy86vltu" path="res://src/scenes/actor.tscn" id="1_cusn3"]
+[ext_resource type="Script" uid="uid://bpa75rykvyqnn" path="res://src/scenes/player.gd" id="2_v4rts"]
+[ext_resource type="AnimationLibrary" uid="uid://bwydg8hmihk28" path="res://src/assets/monster/0000/sprites/AnimData.xml" id="3_hwyk6"]
+[ext_resource type="AnimationLibrary" uid="uid://brtfy2sijc2ec" path="res://src/assets/sprite_direction.res" id="4_ya6j6"]
+[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://dfjsx6rcxcbvu" path="res://src/assets/player_movement_blendspace.tres" id="5_0qy4j"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ya6j6"]
+advance_mode = 2
+advance_expression = "last_direction"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2ftxi"]
+states/MovementBlendSpace/node = ExtResource("5_0qy4j")
+states/MovementBlendSpace/position = Vector2(460, 56.666668)
+transitions = ["Start", "MovementBlendSpace", SubResource("AnimationNodeStateMachineTransition_ya6j6")]
+
+[node name="Player" unique_id=626342499 instance=ExtResource("1_cusn3")]
+script = ExtResource("2_v4rts")
+SPEED = 5.0
+JUMP_VELOCITY = 4.5
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=1724100080]
+libraries/AnimData = ExtResource("3_hwyk6")
+libraries/SpriteDirection = ExtResource("4_ya6j6")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4" unique_id=943752636]
+root_node = NodePath("../Sprite")
+tree_root = SubResource("AnimationNodeStateMachine_2ftxi")
+anim_player = NodePath("../AnimationPlayer")
+parameters/MovementBlendSpace/blend_position = Vector2(0, 0)

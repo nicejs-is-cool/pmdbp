@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bxmm83nm55v6m"]
+
+[ext_resource type="Script" uid="uid://b57vmk2bevwtx" path="res://src/scripts/main_scene.gd" id="1_rr2wm"]
+[ext_resource type="PackedScene" uid="uid://cdgx13ceoa2uc" path="res://src/scenes/player.tscn" id="2_rr2wm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ftxi"]
+size = Vector3(6, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ftxi"]
+size = Vector3(5.7175293, 1, 5.2435303)
+
+[node name="Main" type="Node" unique_id=662836533]
+script = ExtResource("1_rr2wm")
+
+[node name="Player" parent="." unique_id=626342499 instance=ExtResource("2_rr2wm")]
+SPEED = 5.0
+JUMP_VELOCITY = 4.5
+monster_id = 1
+
+[node name="Camera" type="Camera3D" parent="Player" unique_id=1191933429]
+transform = Transform3D(1, 0, 0, 0, 0.777825, 0.62848103, 0, -0.62848103, 0.777825, 0, 2.1929061, 1.9976249)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1830259819]
+
+[node name="Collision" type="CollisionShape3D" parent="Floor" unique_id=385017874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0)
+shape = SubResource("BoxShape3D_2ftxi")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor" unique_id=2013611463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43377447, -0.7280077, -0.015930176)
+mesh = SubResource("BoxMesh_2ftxi")
+
+[node name="UI" type="Control" parent="." unique_id=1254894966]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 651.0
+
+[node name="Portrait" type="TextureRect" parent="UI" unique_id=1900613641]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 482.0
+offset_right = 111.0
+offset_bottom = 522.0

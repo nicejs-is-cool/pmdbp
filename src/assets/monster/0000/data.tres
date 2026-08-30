@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Monster" format=3 uid="uid://dcunqrhmf8kqd"]
+
+[ext_resource type="Script" uid="uid://dfigpk6vgg7ej" path="res://src/scripts/monster.gd" id="1_dwo0t"]
+
+[resource]
+script = ExtResource("1_dwo0t")
+name = &"MissingNo"
+metadata/_custom_type_script = "uid://dfigpk6vgg7ej"
