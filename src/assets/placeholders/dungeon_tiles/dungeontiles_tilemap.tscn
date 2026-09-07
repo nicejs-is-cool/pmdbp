@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bcr4us2n4b5v0"]
+
+[ext_resource type="PackedScene" uid="uid://c0276qu1a72xo" path="res://src/assets/placeholders/dungeon_tiles/Object_685.gltf" id="1_5npit"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ftxi"]
+size = Vector3(6.0335083, 0.5058594, 5.994278)
+
+[node name="Node3D" type="Node3D" unique_id=1541891726]
+
+[node name="default2" parent="." unique_id=1432656922 instance=ExtResource("1_5npit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2389765, 4.7683716e-07, -0.25444603)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="default2" unique_id=215938806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2389765, -4.7683716e-07, 0.25444603)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="default2/StaticBody3D" unique_id=396195960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25908756, -0.24706984, -0.2636242)
+shape = SubResource("BoxShape3D_2ftxi")

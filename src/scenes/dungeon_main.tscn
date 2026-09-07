@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d1pdd5krqgpm3"]
+
+[ext_resource type="PackedScene" uid="uid://cdgx13ceoa2uc" path="res://src/scenes/player.tscn" id="1_w8c44"]
+[ext_resource type="MeshLibrary" uid="uid://bn3y3iacsi7my" path="res://src/assets/placeholders/dungeon_tiles/dungeontiles.meshlib" id="2_eckc7"]
+
+[node name="DungeonMain" type="Node" unique_id=1803842154]
+
+[node name="Player" parent="." unique_id=626342499 instance=ExtResource("1_w8c44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9797153, 0)
+
+[node name="Camera" type="Camera3D" parent="Player" unique_id=1930054693]
+transform = Transform3D(1, 0, 0, 0, 0.777825, 0.62848103, 0, -0.62848103, 0.777825, 0, 2.1929061, 1.9976249)
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1360588251]
+mesh_library = ExtResource("2_eckc7")
+data = {
+"cells": PackedInt32Array(65535, 65535, 0, 65532, 65535, 0, 65532, 2, 0, 65535, 2, 0)
+}
