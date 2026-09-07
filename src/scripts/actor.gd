@@ -51,7 +51,7 @@ func _update_animation_library():
 	anim_data = _mon.get_animdata()
 	if anim_data == null:
 		push_error("anim_data is null??")
-	if animation_player.has_animation(&"AnimData"):
+	if animation_player.has_animation_library(&"AnimData"):
 		#print("removing existing animation lib")
 		animation_player.remove_animation_library(&"AnimData")
 	animation_player.add_animation_library(&"AnimData", anim_data)

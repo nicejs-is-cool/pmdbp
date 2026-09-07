@@ -8,7 +8,6 @@
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ya6j6"]
 advance_mode = 2
-advance_expression = "last_direction"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2ftxi"]
 states/MovementBlendSpace/node = ExtResource("5_0qy4j")

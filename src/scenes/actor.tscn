@@ -25,4 +25,4 @@ root_node = NodePath("../Sprite")
 [node name="NameLabel" type="Label3D" parent="." unique_id=886233640]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 1
-text = "No text set."
+text = "MissingName"

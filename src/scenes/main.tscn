@@ -13,8 +13,6 @@ size = Vector3(5.7175293, 1, 5.2435303)
 script = ExtResource("1_rr2wm")
 
 [node name="Player" parent="." unique_id=626342499 instance=ExtResource("2_rr2wm")]
-SPEED = 5.0
-JUMP_VELOCITY = 4.5
 monster_id = 1
 
 [node name="Camera" type="Camera3D" parent="Player" unique_id=1191933429]
