@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 const PORTRAIT_SIZE = Vector2i(40, 40)

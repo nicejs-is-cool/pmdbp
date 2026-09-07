@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 # does godot have like, ANY kind of weak dictionary

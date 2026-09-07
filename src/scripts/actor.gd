@@ -1,7 +1,14 @@
+@tool
 extends CharacterBody3D
 
 class_name Actor
-@export var monster_id: int = 0
+var _setup_finished: bool = false
+var _monster_id: int = 0
+@export var monster_id: int = 0:
+	get:
+		return _monster_id
+	set(val):
+		_update_monster_id(val)
 """@export var monster_id: int = 0:
 	get:
 		return _monster_id
@@ -23,18 +30,22 @@ func _ready() -> void:
 	_update_animation_library()
 	_set_spritesheet(&"Walk")
 	_update_name()
+	_setup_finished = true
 
-"""func _update_monster_id(id: int) -> bool:
+func _update_monster_id(id: int) -> bool:
 	var newMon = MonRegistry.get_monster(id)
 	if newMon == null:
 		push_error("_update_monster_id: couldn't get new monster")
 		return false
 	_mon = newMon
+	_monster_id = id
+	if not _setup_finished:
+		print("setup not finished")
+		return false
 	_update_animation_library()
 	_set_spritesheet(&"Walk")
 	_update_name()
-	_monster_id = id
-	return true"""
+	return true
 
 func _update_name():
 	name_label.text = _mon.name
