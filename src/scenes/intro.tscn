@@ -213,9 +213,9 @@ mesh = SubResource("SphereMesh_2ftxi")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Orb" unique_id=478053043]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-amount = 64
-lifetime = 0.8
-preprocess = 4.0
+amount = 256
+lifetime = 1.4000000000000001
+preprocess = 6.0
 speed_scale = 0.5
 randomness = 0.55
 local_coords = true
