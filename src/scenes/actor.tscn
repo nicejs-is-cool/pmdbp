@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c36jew7kvqjpc" path="res://src/scripts/actor.gd" id="1_43djt"]
 [ext_resource type="Texture2D" uid="uid://16ta0yxm63q1" path="res://src/assets/monster/0000/sprites/Walk-Anim.png" id="1_l4461"]
+[ext_resource type="FontFile" uid="uid://cm7kqgl0xoxsh" path="res://src/assets/fonts/wondermail.ttf" id="3_hppaw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ftxi"]
 
@@ -26,3 +27,6 @@ root_node = NodePath("../Sprite")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 1
 text = "MissingName"
+font = ExtResource("3_hppaw")
+font_size = 64
+outline_size = 1
