@@ -59,10 +59,70 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Copyright:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Copyright2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 6.570541, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_3xjwq"]
 resource_name = "move"
-length = 2.1
+length = 12.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,10 +130,70 @@ tracks/0/path = NodePath("Orb:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.1),
+"times": PackedFloat32Array(0, 11.633333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 7), Vector3(0, 0, -8)]
+"values": [Vector3(0, 0, 7), Vector3(0, 0, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Copyright:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.46),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Copyright2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.4666667, 2.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.8333333, 3.66, 3.84, 4.03, 4.3301973, 4.4900002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(0, 0, -0.13962634), Vector3(0.08552113, 0, 0.20943952), Vector3(-0.17627828, 0, 0), Vector3(-0.17627822, 0.2617994, 0), Vector3(-0.17627822, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.3, 4.233333, 4.4900002, 5.0800004, 6.63, 8.657538, 10.057539, 11.883763),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 6.570541, 0), Vector3(0, 2.570541, -9), Vector3(2, 2.570541, -13), Vector3(2, 2.570541, -17), Vector3(2, 2.570541, -26), Vector3(2, 2.570541, -35), Vector3(2, 2.570541, -44), Vector3(2, 2.570541, -54)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(11.065847, 12.085848),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8t42k"]
@@ -102,12 +222,28 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_2ftxi")
 draw_pass_1 = SubResource("QuadMesh_l1j6l")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=662480635]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.570541, 0)
+[node name="Camera" type="Camera3D" parent="." unique_id=662480635]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.570541, 0)
+
+[node name="SourceCode" type="Label3D" parent="." unique_id=297473519]
+transform = Transform3D(1, 0, 0, 0, 1, -6.993822e-07, 0, 6.993822e-07, 1, -4, 1.0000014, -49)
+pixel_size = 0.013
+text = "This project's source code is licensed under LGPL-2.0.
+"
+font = ExtResource("2_e40mb")
+
+[node name="SCCreditsNote" type="Label3D" parent="." unique_id=1061285131]
+transform = Transform3D(1, 0, 0, 0, 1, -6.993822e-07, 0, 6.993822e-07, 1, 5, 1.0000014, -38)
+pixel_size = 0.013
+text = "SpriteCollab credits are present in the root directory
+of your game install as SC_credits.txt
+All credits (for this game) are also present as simply credits.txt."
+font = ExtResource("2_e40mb")
 
 [node name="Copyright2" type="Label3D" parent="." unique_id=694585325]
-transform = Transform3D(1, 0, 0, 0, 1, -3.496911e-07, 0, 3.496911e-07, 1, -5, 1, -4)
+transform = Transform3D(1, 0, 0, 0, 3.059797e-07, 1, 0, -1, 3.059797e-07, -4.476389, 0, -2.6816335)
 pixel_size = 0.013
+modulate = Color(1, 1, 1, 0)
 text = "Pokémon Mystery Dungeon: Branching Paths is a free fangame
 created by fans of the Pokémon Mystery Dungeon franchise.
 
@@ -117,11 +253,17 @@ font = ExtResource("2_e40mb")
 [node name="Copyright" type="Label3D" parent="." unique_id=993369460]
 transform = Transform3D(1, 0, 0, 0, 1.3113416e-07, 1, 0, -1, 1.3113416e-07, 4, 0, 0)
 pixel_size = 0.013
+modulate = Color(1, 1, 1, 0)
 text = "Pokémon is trademark of The Pokémon Company.
 Mystery Dungeon is trademark of Spike Chunsoft."
 font = ExtResource("2_e40mb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1098639936]
 libraries/ = SubResource("AnimationLibrary_8t42k")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=390461007]
+offset_right = 1162.0
+offset_bottom = 658.0
+color = Color(1, 1, 1, 0)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
