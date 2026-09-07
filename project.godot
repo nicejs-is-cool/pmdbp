@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PMD: Branching Paths"
-run/main_scene="uid://bxmm83nm55v6m"
+run/main_scene="uid://b0sx0hknpjbf5"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
