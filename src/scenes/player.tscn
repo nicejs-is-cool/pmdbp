@@ -20,11 +20,15 @@ SPEED = 5.0
 JUMP_VELOCITY = 4.5
 
 [node name="AnimationPlayer" parent="." index="2" unique_id=1724100080]
+deterministic = true
 libraries/AnimData = ExtResource("3_hwyk6")
 libraries/SpriteDirection = ExtResource("4_ya6j6")
+
+[node name="NameLabel" parent="." index="3" unique_id=886233640]
+text = "MissingNo"
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="4" unique_id=943752636]
 root_node = NodePath("../Sprite")
 tree_root = SubResource("AnimationNodeStateMachine_2ftxi")
 anim_player = NodePath("../AnimationPlayer")
-parameters/MovementBlendSpace/blend_position = Vector2(0, 0)
+parameters/MovementBlendSpace/blend_position = Vector2(0, -0.0062111616)

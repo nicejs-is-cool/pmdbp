@@ -79,4 +79,5 @@ func pause_animation():
 	animation_player.pause()
 
 func set_direction(dir: SpriteCollab.SpriteDirection):
+	print(dir)
 	sprite.frame_coords.y = dir

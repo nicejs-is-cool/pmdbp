@@ -25,6 +25,7 @@ animation = &"SpriteDirection/NorthWest"
 animation = &"SpriteDirection/SouthWest"
 
 [resource]
+blend_mode = 1
 blend_point_0/node = SubResource("AnimationNodeAnimation_mqiqq")
 blend_point_0/pos = Vector2(0, 1)
 blend_point_0/name = &"SpriteDirection_South"

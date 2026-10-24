@@ -2,14 +2,25 @@
 
 [ext_resource type="Script" uid="uid://b57vmk2bevwtx" path="res://src/scripts/main_scene.gd" id="1_rr2wm"]
 [ext_resource type="PackedScene" uid="uid://cdgx13ceoa2uc" path="res://src/scenes/player.tscn" id="2_rr2wm"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ftxi"]
-size = Vector3(6, 1, 5)
+[ext_resource type="PackedScene" uid="uid://bmdrtgy86vltu" path="res://src/scenes/actor.tscn" id="3_32aa5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ftxi"]
-size = Vector3(5.7175293, 1, 5.2435303)
+size = Vector3(5.7175293, 1, 33)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_32aa5"]
+data = PackedVector3Array(-2.8588, 0.5, 16.5, 2.8588, 0.5, 16.5, -2.8588, -0.5, 16.5, 2.8588, 0.5, 16.5, 2.8588, -0.5, 16.5, -2.8588, -0.5, 16.5, 2.8588, 0.5, -16.5, -2.8588, 0.5, -16.5, 2.8588, -0.5, -16.5, -2.8588, 0.5, -16.5, -2.8588, -0.5, -16.5, 2.8588, -0.5, -16.5, 2.8588, 0.5, 16.5, 2.8588, 0.5, -16.5, 2.8588, -0.5, 16.5, 2.8588, 0.5, -16.5, 2.8588, -0.5, -16.5, 2.8588, -0.5, 16.5, -2.8588, 0.5, -16.5, -2.8588, 0.5, 16.5, -2.8588, -0.5, -16.5, -2.8588, 0.5, 16.5, -2.8588, -0.5, 16.5, -2.8588, -0.5, -16.5, 2.8588, 0.5, 16.5, -2.8588, 0.5, 16.5, 2.8588, 0.5, -16.5, -2.8588, 0.5, 16.5, -2.8588, 0.5, -16.5, 2.8588, 0.5, -16.5, -2.8588, -0.5, 16.5, 2.8588, -0.5, 16.5, -2.8588, -0.5, -16.5, 2.8588, -0.5, 16.5, 2.8588, -0.5, -16.5, -2.8588, -0.5, -16.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kt1e7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8lqmb"]
+ground_bottom_color = Color(0.49622965, 0.29965714, 1, 1)
+
+[sub_resource type="Sky" id="Sky_kt1e7"]
+sky_material = SubResource("ProceduralSkyMaterial_8lqmb")
+
+[sub_resource type="Environment" id="Environment_2ftxi"]
+background_mode = 2
+sky = SubResource("Sky_kt1e7")
 
 [node name="Main" type="Node" unique_id=662836533]
 script = ExtResource("1_rr2wm")
@@ -22,13 +33,13 @@ transform = Transform3D(1, 0, 0, 0, 0.777825, 0.62848103, 0, -0.62848103, 0.7778
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1830259819]
 
-[node name="Collision" type="CollisionShape3D" parent="Floor" unique_id=385017874]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0)
-shape = SubResource("BoxShape3D_2ftxi")
-
 [node name="Mesh" type="MeshInstance3D" parent="Floor" unique_id=2013611463]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43377447, -0.7280077, -0.015930176)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43377447, -0.7280077, 6.105835)
 mesh = SubResource("BoxMesh_2ftxi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1731758266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43377447, -0.7280077, 6.105835)
+shape = SubResource("ConcavePolygonShape3D_32aa5")
 
 [node name="UI" type="Control" parent="." unique_id=1254894966]
 layout_mode = 3
@@ -46,7 +57,14 @@ offset_bottom = 522.0
 [node name="Area3D" type="Area3D" parent="." unique_id=2046712138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4680724, 0.28053844, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1094713094]
+[node name="Collision" type="CollisionShape3D" parent="Area3D" unique_id=1094713094]
 shape = SubResource("BoxShape3D_kt1e7")
+
+[node name="Actor" parent="." unique_id=1445191307 instance=ExtResource("3_32aa5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5630953, 0.24588728, 0)
+monster_id = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1176666476]
+environment = SubResource("Environment_2ftxi")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
