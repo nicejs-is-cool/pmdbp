@@ -2,9 +2,31 @@
 
 [ext_resource type="Script" uid="uid://c36jew7kvqjpc" path="res://src/scripts/actor.gd" id="1_43djt"]
 [ext_resource type="Texture2D" uid="uid://16ta0yxm63q1" path="res://src/assets/monster/0000/sprites/Walk-Anim.png" id="1_l4461"]
+[ext_resource type="AnimationLibrary" uid="uid://bwydg8hmihk28" path="res://src/assets/monster/0000/sprites/AnimData.xml" id="3_hcmyn"]
 [ext_resource type="FontFile" uid="uid://cm7kqgl0xoxsh" path="res://src/assets/fonts/wondermail.ttf" id="3_hppaw"]
+[ext_resource type="AnimationLibrary" uid="uid://brtfy2sijc2ec" path="res://src/assets/sprite_direction.res" id="4_dejql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ftxi"]
+
+[sub_resource type="Animation" id="Animation_dejql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4v27t"]
+_data = {
+&"RESET": SubResource("Animation_dejql")
+}
 
 [node name="Actor" type="CharacterBody3D" unique_id=626342499]
 script = ExtResource("1_43djt")
@@ -16,17 +38,21 @@ texture_filter = 0
 texture = ExtResource("1_l4461")
 hframes = 9
 vframes = 8
+frame = 1
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=128488068]
 shape = SubResource("CapsuleShape3D_2ftxi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1724100080]
 root_node = NodePath("../Sprite")
+libraries/ = SubResource("AnimationLibrary_4v27t")
+libraries/AnimData = ExtResource("3_hcmyn")
+libraries/SpriteDirection = ExtResource("4_dejql")
 
 [node name="NameLabel" type="Label3D" parent="." unique_id=886233640]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 1
-text = "MissingName"
+text = "MissingNo"
 font = ExtResource("3_hppaw")
 font_size = 64
 outline_size = 1

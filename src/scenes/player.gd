@@ -7,7 +7,7 @@ class_name Player
 #might lowk move these two vars to Actor
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
-var last_direction: bool = false
+var is_moving = false
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -23,18 +23,21 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "move_up", "ui_down")
+	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if Input.is_action_just_pressed("debug1"):
+		print("debug key")
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		last_direction = true
+		is_moving = true
 		if Input.is_action_just_pressed("debug1"):
 			var playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
-			print(playback.get_current_node())
-			print(animation_player.current_animation)
+			print("current node: ", playback.get_current_node())
+			print("current anim: ", animation_player.current_animation)
 		animation_tree.set("parameters/MovementBlendSpace/blend_position", input_dir)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		is_moving = false
 	move_and_slide()
