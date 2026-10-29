@@ -27,17 +27,28 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if Input.is_action_just_pressed("debug1"):
 		print("debug key")
+		play_animation(&"Idle")
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 		is_moving = true
+		var playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 		if Input.is_action_just_pressed("debug1"):
-			var playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
+			#var playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 			print("current node: ", playback.get_current_node())
 			print("current anim: ", animation_player.current_animation)
+		#playback.start(&"MovementBlendSpace")
 		animation_tree.set("parameters/MovementBlendSpace/blend_position", input_dir)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		is_moving = false
 	move_and_slide()
+
+
+func _on_animation_tree_animation_started(anim_name: StringName) -> void:
+	print("[tree] animation started: ", anim_name)
+	if anim_name.begins_with("AnimData/"):
+		var ad_name = anim_name.replace("AnimData/", "")
+		if ad_name != _current_spritesheet:
+			_set_spritesheet(ad_name)

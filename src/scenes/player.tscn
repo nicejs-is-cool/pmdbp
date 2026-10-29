@@ -5,38 +5,55 @@
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://dfjsx6rcxcbvu" path="res://src/assets/player_movement_blendspace.tres" id="5_0qy4j"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hwyk6"]
+animation = &"AnimData/Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l2v1k"]
 animation = &"SpriteDirection/North"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ya6j6"]
 advance_mode = 2
 advance_expression = "is_moving"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l2v1k"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0qy4j"]
+switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_moving"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hwyk6"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8v6aa"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4pcbe"]
 advance_mode = 2
 advance_expression = "is_moving"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2ftxi"]
+states/AnimData_Idle/node = SubResource("AnimationNodeAnimation_hwyk6")
+states/AnimData_Idle/position = Vector2(562, 173)
 states/MovementBlendSpace/node = ExtResource("5_0qy4j")
 states/MovementBlendSpace/position = Vector2(462, 90.66667)
-states/SpriteDirection_North/node = SubResource("AnimationNodeAnimation_hwyk6")
-states/SpriteDirection_North/position = Vector2(462, 174)
-transitions = ["Start", "MovementBlendSpace", SubResource("AnimationNodeStateMachineTransition_ya6j6"), "MovementBlendSpace", "SpriteDirection_North", SubResource("AnimationNodeStateMachineTransition_l2v1k"), "SpriteDirection_North", "MovementBlendSpace", SubResource("AnimationNodeStateMachineTransition_hwyk6")]
+states/SpriteDirection_North/node = SubResource("AnimationNodeAnimation_l2v1k")
+states/SpriteDirection_North/position = Vector2(393, 240)
+transitions = ["Start", "MovementBlendSpace", SubResource("AnimationNodeStateMachineTransition_ya6j6"), "MovementBlendSpace", "AnimData_Idle", SubResource("AnimationNodeStateMachineTransition_0qy4j"), "AnimData_Idle", "SpriteDirection_North", SubResource("AnimationNodeStateMachineTransition_8v6aa"), "SpriteDirection_North", "MovementBlendSpace", SubResource("AnimationNodeStateMachineTransition_4pcbe")]
+graph_offset = Vector2(-20, 71)
 
 [node name="Player" unique_id=626342499 instance=ExtResource("1_cusn3")]
 script = ExtResource("2_v4rts")
 SPEED = 5.0
 JUMP_VELOCITY = 4.5
 
+[node name="Sprite" parent="." index="0" unique_id=434802175]
+frame = 0
+
 [node name="AnimationPlayer" parent="." index="2" unique_id=1724100080]
 deterministic = true
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="4" unique_id=943752636]
+[node name="AnimationTree" type="AnimationTree" parent="." index="5" unique_id=943752636]
 root_node = NodePath("../Sprite")
 tree_root = SubResource("AnimationNodeStateMachine_2ftxi")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/MovementBlendSpace/blend_position = Vector2(0, -0.0062111616)
+
+[connection signal="animation_started" from="AnimationTree" to="." method="_on_animation_tree_animation_started"]

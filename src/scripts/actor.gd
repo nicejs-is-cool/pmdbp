@@ -80,5 +80,8 @@ func pause_animation():
 
 func set_direction(dir: SpriteCollab.SpriteDirection):
 	#print("[set_direction] ", dir, " ", SpriteCollab.SpriteDirection.keys()[dir])
-	#sprite.frame_coords.y = dir
-	pass
+	sprite.frame_coords.y = dir
+
+
+func _on_animation_player_animation_started(anim_name: StringName) -> void:
+	print("anim started: ", anim_name)
