@@ -7,14 +7,17 @@ class_name Player
 #might lowk move these two vars to Actor
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
+@export var gravity_enabled: bool = true
 var is_moving = false
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
+	if Input.is_action_just_pressed("debug2"):
+		gravity_enabled = !gravity_enabled
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if gravity_enabled: velocity += get_gravity() * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():

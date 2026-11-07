@@ -7,6 +7,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://brtfy2sijc2ec" path="res://src/assets/sprite_direction.res" id="4_dejql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ftxi"]
+radius = 0.4
+height = 1.5
 
 [sub_resource type="Animation" id="Animation_dejql"]
 length = 0.001
